@@ -25,6 +25,12 @@ const router = createBrowserRouter([
             },
         ]
     },
+    //     {
+    //         path: "/login"
+    // element:
+    //     },
+
+
     {
         path: "/admin",
         element: <AdminLayout></AdminLayout>,
