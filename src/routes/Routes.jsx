@@ -8,6 +8,7 @@ import App from "../App";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import AdminLayout from "../AdminLayout/AdminLayout";
+import Home from "../Pages/Home/Home";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <App></App>,
         children: [
+            {
+                index: true,
+                element: <Home></Home>,
+            },
             {
                 path: 'about',
                 element: <About></About>,

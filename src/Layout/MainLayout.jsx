@@ -30,7 +30,7 @@ const MainLayout = ({ children }) => {
 };
 
 MainLayout.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 };
 
 export default MainLayout;
