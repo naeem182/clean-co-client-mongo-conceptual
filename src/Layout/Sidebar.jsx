@@ -30,14 +30,22 @@ const Sidebar = () => {
             >
                 contact
             </NavLink>
-            {/* <NavLink
-            to="/about"
-            className={({ isActive }) =>
-                isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
-            }
-        >
-            About
-        </NavLink> */}
+            <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                }
+            >
+                Signup
+            </NavLink>
+            <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                }
+            >
+                Signin
+            </NavLink>
         </ul>
     )
 }

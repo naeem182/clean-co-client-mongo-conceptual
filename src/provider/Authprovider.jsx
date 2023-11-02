@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 
@@ -25,20 +25,31 @@ const AuthProvider = ({ children }) => {
         setIsLoading(true);
         return signOut(auth);
     }
+    //google
+    //google
+    const googleLogin = () => {
+        setIsLoading(true);
+        const provider = new GoogleAuthProvider();
+        return signInWithPopup(auth, provider);
+    };
+
 
     // User persistence
     useEffect(() => {
         const subscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            console.log("currentUser", currentUser)
             setIsLoading(false);
         });
         return () => subscribe();
     }, []);
 
     const userInfo = {
+        user,
         createUser,
         signin,
-        logout
+        logout,
+        googleLogin
     }
 
     return (

@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom"
+import useAuth from "../hook/useAuth"
 
 
 const Navbar = () => {
+    const { user, logout } = useAuth();
     return (
         <div className="w-full m-auto max-w-[1200px]">
             <div className="flex-none lg:hidden">
@@ -37,14 +39,28 @@ const Navbar = () => {
                     >
                         contact
                     </NavLink>
-                    {/* <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
-                }
-            >
-                About
-            </NavLink> */}
+                    <NavLink
+                        to="/register"
+                        className={({ isActive }) =>
+                            isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                        }
+                    >
+                        Signup
+                    </NavLink>
+
+                    {user?.email ? (<button onClick={logout} className="btn btn-primary ">Logout</button>) :
+
+                        (<NavLink
+                            to="/login"
+                            className={({ isActive }) =>
+                                isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                            }
+                        >
+                            Signin
+                        </NavLink>)
+                    }
+
+
                 </div>
             </div>
         </div>
