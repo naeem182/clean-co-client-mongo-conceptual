@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 
 const MainLayout = ({ children }) => {
@@ -16,11 +17,33 @@ const MainLayout = ({ children }) => {
                     </div>
                     <div className="flex-1 px-2 mx-2">Navbar Title</div>
                     <div className="flex-none hidden lg:block">
-                        <ul className="menu menu-horizontal">
+                        <div className="flex gap-2">
                             {/* Navbar menu content here */}
-                            <li><a>Navbar Item 1</a></li>
-                            <li><a>Navbar Item 2</a></li>
-                        </ul>
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                                }
+                            >
+                                About
+                            </NavLink>
+                            <NavLink
+                                to="/contact"
+                                className={({ isActive }) =>
+                                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                                }
+                            >
+                                contact
+                            </NavLink>
+                            {/* <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                                }
+                            >
+                                About
+                            </NavLink> */}
+                        </div>
                     </div>
                 </div>
                 {/* Page content here */}
@@ -30,8 +53,22 @@ const MainLayout = ({ children }) => {
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full bg-base-200">
                     {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) =>
+                            isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                        }
+                    >
+                        About
+                    </NavLink>
+                    <NavLink
+                        to="/contact"
+                        className={({ isActive }) =>
+                            isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                        }
+                    >
+                        contact
+                    </NavLink>
                 </ul>
             </div>
         </div>
