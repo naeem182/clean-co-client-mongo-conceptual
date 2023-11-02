@@ -6,6 +6,15 @@ const Sidebar = () => {
         <ul className="menu p-4 w-80 min-h-full bg-base-200" >
             {/* Navbar menu content here */}
             <NavLink
+                to="/"
+                className={({ isActive }) =>
+                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                }
+            >
+                Home
+            </NavLink>
+            {/* Navbar menu content here */}
+            <NavLink
                 to="/about"
                 className={({ isActive }) =>
                     isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
