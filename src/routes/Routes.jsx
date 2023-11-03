@@ -11,6 +11,7 @@ import AdminLayout from "../AdminLayout/AdminLayout";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'about',
-                element: <About></About>,
+                element: <PrivateRoute> <About></About></PrivateRoute>,
             },
             {
                 path: 'contact',

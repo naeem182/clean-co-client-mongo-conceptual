@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
-
+import toast from 'react-hot-toast';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,14 +14,16 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const toastId = toast.loading('Logging in ...');
         try {
             await signin(email, password);
             navigate(location?.state ? location.state : '/');
-            alert("successfully login")
+            toast.success('Logged in', { id: toastId });
+            // alert("successfully login")
         } catch (error) {
             console.log("Login error:", error);
             setError(error.message); // Set the error message
+
         }
     };
     const handleGoogleLogin = async () => {

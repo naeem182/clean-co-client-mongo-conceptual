@@ -37,8 +37,8 @@ const AuthProvider = ({ children }) => {
     // User persistence
     useEffect(() => {
         const subscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-            console.log("currentUser", currentUser)
+            console.log('user in the auth state', currentUser);
+            setUser(currentUser)
             setIsLoading(false);
         });
         return () => subscribe();
@@ -49,7 +49,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signin,
         logout,
-        googleLogin
+        googleLogin,
+        isLoading
     }
 
     return (
