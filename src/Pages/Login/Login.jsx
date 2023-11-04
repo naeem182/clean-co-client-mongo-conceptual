@@ -8,11 +8,12 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { signin, googleLogin } = useAuth();
+
     const navigate = useNavigate();
     const location = useLocation();
 
-
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         const toastId = toast.loading('Logging in ...');
         try {
@@ -23,6 +24,7 @@ const Login = () => {
         } catch (error) {
             console.log("Login error:", error);
             setError(error.message); // Set the error message
+            toast.error('Logged in faild', { id: toastId });
 
         }
     };

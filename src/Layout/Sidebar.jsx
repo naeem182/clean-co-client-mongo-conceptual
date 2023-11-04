@@ -30,6 +30,15 @@ const Sidebar = () => {
             >
                 contact
             </NavLink>
+
+            <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                    isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                }
+            >
+                services
+            </NavLink>
             <NavLink
                 to="/register"
                 className={({ isActive }) =>

@@ -12,6 +12,7 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import Services from "../Pages/services/Services";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact></Contact>
+            },
+            {
+                path: 'services',
+                element: <Services></Services>
             },
         ]
     },
