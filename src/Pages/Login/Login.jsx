@@ -29,21 +29,38 @@ const Login = () => {
             await axios.post("/auth/access-token",
                 { email: user.user.email })
 
-            if (res.data.success) {
-                navigate(location?.state ? location.state : '/');
-                toast.success('Logged in', { id: toastId });
-                // alert("successfully login")
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.success) {
+                        navigate(location?.state ? location.state : '/');
+                        toast.success('Logged in', { id: toastId });
+                        // alert("successfully login")
+                    }
+                    else {
+                        logout()
+                    }
+                })
 
-            } else {
-                logout()
-            }
-        } catch (error) {
+        }
+        catch (error) {
             console.log("Login error:", error);
             setError(error.message); // Set the error message
             toast.error('Logged in faild', { id: toastId });
 
         }
-    };
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     const handleGoogleLogin = async () => {
 
 
