@@ -8,7 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { signin, googleLogin } = useAuth();
+    const { signin, googleLogin, logout } = useAuth();
 
 
     const navigate = useNavigate();
@@ -26,11 +26,17 @@ const Login = () => {
             const user = await signin(email, password);
 
             //axios
-            await axios.post("/auth/access-token", { email: user.user.email })
+            await axios.post("/auth/access-token",
+                { email: user.user.email })
 
-            navigate(location?.state ? location.state : '/');
-            toast.success('Logged in', { id: toastId });
-            // alert("successfully login")
+            if (res.data.success) {
+                navigate(location?.state ? location.state : '/');
+                toast.success('Logged in', { id: toastId });
+                // alert("successfully login")
+
+            } else {
+                logout()
+            }
         } catch (error) {
             console.log("Login error:", error);
             setError(error.message); // Set the error message
