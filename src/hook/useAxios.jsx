@@ -11,4 +11,4 @@ const useAxios = () => {
     return instance;
 }
 
-export default useAxios
+export default useAxios;
